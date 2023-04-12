@@ -46,9 +46,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "netlify-cli": "^13.2.2",
     "prettier": "^2.0.5"
   },
   "engines": {
     "node": ">= 18.15.0"
+  },
+  "volta": {
+    "node": "18.15.0",
+    "npm": "9.6.4"
   }
 }
