@@ -1,6 +1,6 @@
 # Commerseum Display v2
 
-Currently WIP. Based on Gatsby + Decap CMS Starter.
+Currently WIP. Based on Gatsby + Decap CMS Starter. For the older still-working version, please see the [v1 branch](https://github.com/nerds-with-keyboards/commerseum-display/tree/v1).
 
 <!-- TODO: UPDATE BELOW -->
 <!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys) -->
