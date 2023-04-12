@@ -1,6 +1,6 @@
-# Commerseum
+# Commerseum Display
 
-This repo serves as the base repo for the beta version of Commerseum client!
+This branch serves as the base repo for v1 of Commerseum Display
 
 
 ## Info
@@ -11,8 +11,8 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Prerequisites
 
-- Node (I recommend using v8.2.0 or higher)
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/) (todo: is it strictly required?)
+- Volta (volta.sh) use it to install node & yarn
+- Node (v10, v8)
 - Yarn
 
 ## Getting Started
