@@ -3,10 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
-
 const BlogRollTemplate = (props) => {
-  
-  const { edges: posts } = props.data.allMarkdownRemark;
+  const { edges: posts } = props.data.allMarkdownRemark
 
   return (
     <div className="columns is-multiline">
@@ -34,7 +32,7 @@ const BlogRollTemplate = (props) => {
                       }}
                     />
                   </div>
-                ) }
+                )}
                 <p className="post-meta">
                   <Link
                     className="title has-text-primary is-size-4"
@@ -71,7 +69,6 @@ BlogRoll.propTypes = {
   }),
 }
 
-
 export default function BlogRoll() {
   return (
     <StaticQuery
@@ -100,7 +97,6 @@ export default function BlogRoll() {
                         quality: 100
                         layout: CONSTRAINED
                       )
-
                     }
                   }
                 }
@@ -111,5 +107,5 @@ export default function BlogRoll() {
       `}
       render={(data, count) => <BlogRollTemplate data={data} count={count} />}
     />
-  );
+  )
 }
