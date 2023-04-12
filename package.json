@@ -38,10 +38,10 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "start": "npm run develop",
+    "start": "ntl dev",
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
-    "serve": "gatsby serve",
+    "serve": "ntl serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

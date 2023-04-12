@@ -29,17 +29,16 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Prerequisites
 
-- Minimal Node.js version 14.15.0
-- [Gatsby CLI](https://www.gatsbyjs.com/docs/reference/gatsby-cli/)
-- [Netlify CLI](https://github.com/netlify/cli)
+- [Volta](https://volta.sh) to install Node etc
+- Node.js version 18+ (Volta will recognize in package.json)
 
-## Getting Started (Recommended)
+<!-- ## Getting Started (Recommended)
 
 Decap CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/decaporg/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/decaporg/gatsby-starter-decap-cms&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
-After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
+After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS. -->
 
 ### Access Locally
 
@@ -49,7 +48,7 @@ Pulldown a local copy of the Github repository Netlify created for you, with the
 $ git clone https://github.com/nerds-with-keyboards/commerseum-display.git
 $ cd commerseum-display
 $ npm i
-$ netlify dev # or ntl dev
+$ npm start
 ```
 
 This uses [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `netlify/functions` folder.
@@ -57,8 +56,7 @@ This uses [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&ut
 To test the CMS locally, you'll need to run a production build of the site:
 
 ```
-$ npm run build
-$ netlify dev # or ntl dev
+$ npm serve
 ```
 
 ### Media Libraries (installed, but optional)
