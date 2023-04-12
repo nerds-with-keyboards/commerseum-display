@@ -1,0 +1,57 @@
+@import "~bulma/sass/utilities/initial-variables"
+
+// Config vars
+$foo-red: #FD461E
+$foo-red-invert: #fff
+
+$primary: $foo-red
+$primary-invert: $foo-red-invert
+
+.content .taglist
+  list-style: none
+  margin-bottom: 0
+  margin-left: 0
+  margin-right: 1.5rem
+  margin-top: 1.5rem
+  display: flex
+  flex-wrap: wrap
+  justify-content: left
+  align-items: center
+  li
+    padding: 0 2rem 1rem 0
+    margin-bottom: 1.5rem
+    margin-top: 0
+
+// Helper Classes
+.full-width-image-container
+  width: 100vw
+  height: 100vh
+  // height: 400px
+  position: relative
+  left: 50%
+  right: 50%
+  // margin: 0
+  margin: 0em -50vw
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+
+.margin-top-0
+  margin-top: 0 !important
+
+::-webkit-scrollbar
+  display: none
+
+body, html
+  background: transparent
+  margin: 0
+  height: 100%
+  overflow: hidden
+
+//temp
+h1
+  font-size: 4rem !important
+
+@import "~bulma"

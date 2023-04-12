@@ -1,0 +1,122 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'scene'
+    label: 'Scene'
+    folder: 'src/pages/scenes'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - label: 'Template Key'
+        name: 'templateKey'
+        widget: 'hidden'
+        default: 'scene'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Image'
+        name: 'image'
+        widget: 'image'
+        required: false
+      - label: 'Video (URL)'
+        name: 'video'
+        # widget: 'youtube'
+        widget: 'string'
+        required: false
+        # APIKey: 'AIzaSyD4n4u-pYByWSHoJOptoh8IlWSKSQicNeE'
+        extraInfo: false
+      - label: 'Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Screen Text'
+        name: 'screenText'
+        widget: 'markdown'
+        required: false
+      - label: 'Notes'
+        name: 'body'
+        widget: 'markdown'
+        required: false
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+      - label: 'Overriding Scene Duration, in seconds (optional)'
+        name: 'duration'
+        widget: 'number'
+        valueType: 'int'
+        min: 1
+        required: false
+      - label: 'Due Dates'
+        name: dueDates
+        widget: list
+        required: false
+        fields:
+          - label: Due Date
+            name: dueDate
+            widget: datetime
+          - label: Gender
+            name: gender
+            widget: select
+            options: ['boy', 'girl', 'unidentified']
+          - label: 'Name'
+            name: title
+            widget: string
+          - label: Image
+            name: image
+            widget: image
+            required: false
+
+  - name: 'playlist'
+    label: 'Playlist'
+    folder: 'src/pages/playlists'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - label: 'Template Key'
+        name: 'templateKey'
+        widget: 'hidden'
+        default: 'playlist'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Icon (optional)'
+        name: 'image'
+        widget: 'image'
+        required: false
+      - label: 'Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Default Scene Duration, in seconds (optional)'
+        name: 'duration'
+        widget: 'number'
+        valueType: 'float'
+        required: false
+      - label: 'Linked Scenes'
+        name: 'scenes'
+        widget: 'list'
+        fields:
+          - label: 'Scene'
+            name: 'title'
+            collection: 'scene'
+            displayFields: ['title']
+            searchFields: ['title', 'body', 'tags']
+            valueField: 'title'
+            widget: 'relation'
+            required: false
+          - label: 'Note (optional)'
+            name: 'note'
+            widget: 'string'
+            required: false
+      - label: 'Notes'
+        name: 'body'
+        widget: 'markdown'
+        required: false
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false

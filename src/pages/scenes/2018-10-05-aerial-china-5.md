@@ -1,0 +1,8 @@
+---
+templateKey: scene
+title: Aerial China 4
+video: >-
+  https://sylvan.apple.com/Videos/comp_CH_C007_C004_PSNK_v02_SDR_PS_FINAL_20180709_SDR_2K_AVC.mov
+date: '2018-10-05T00:00:00-06:00'
+---
+
