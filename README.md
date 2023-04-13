@@ -7,24 +7,16 @@ Currently WIP. Based on Gatsby + Decap CMS Starter. For the older still-working 
 
 **Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-4/).
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Decap CMS](https://www.decapcms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
-
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+The web app harnesses the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
 ## Features
 
-- A simple landing page with blog functionality built with Decap CMS
-- Editable Pages: Landing, About, Product, Blog-Collection and Contact page with Netlify Form support
-- Create Blog posts from decap CMS
-- Tags: Separate page for posts under each tag
-- Basic directory organization
+- A simple digital signage application based on Decap CMS
+- Create playlists and scenes from decap CMS admin page
 - Uses Bulma for styling, but size is reduced by `gatsy-plugin-purgecss`
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
 - Uses `gatsby-plugin-image` with Decap CMS preview support
-- Separate components for everything
 - Netlify deploy configuration
-- Netlify function support, see `netlify/functions` folder
-- Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
 - ..and more
 
 ## Prerequisites
