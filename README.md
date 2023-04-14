@@ -17,8 +17,9 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Getting Started
 ```
-$ git clone https://github.com/floydnoel/commerseum.git
+$ git clone https://github.com/nerds-with-keyboards/commerseum-display.git
 $ cd commerseum
+$ git checkout v1
 $ yarn
 $ yarn start
 ```
