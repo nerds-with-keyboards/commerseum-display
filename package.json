@@ -22,8 +22,6 @@
     "lodash": "^4.17.15",
     "lodash-webpack-plugin": "^0.11.4",
     "netlify-cms-app": "^2.15.72",
-    "netlify-cms-media-library-cloudinary": "^1.3.10",
-    "netlify-cms-media-library-uploadcare": "^0.5.10",
     "prop-types": "^15.6.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
@@ -41,7 +39,7 @@
     "start": "ntl dev",
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
-    "serve": "ntl serve",
+    "serve": "npm run build && ntl serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
