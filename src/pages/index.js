@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import React from "react";
+import PropTypes from "prop-types";
+import Link from "gatsby-link";
+import { graphql } from "gatsby";
 
 export default class IndexPage extends React.Component {
   // constructor(props) {
@@ -8,20 +9,20 @@ export default class IndexPage extends React.Component {
   // }
 
   render() {
-    const { data } = this.props
-    const { edges: playlistsAndScenes } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: playlistsAndScenes } = data.allMarkdownRemark;
     const scenes = playlistsAndScenes.filter(
-      e => e.node.frontmatter.templateKey === 'scene'
-    )
+      (e) => e.node.frontmatter.templateKey === "scene"
+    );
     const playlists = playlistsAndScenes.filter(
-      e => e.node.frontmatter.templateKey === 'playlist'
-    )
+      (e) => e.node.frontmatter.templateKey === "playlist"
+    );
 
     return (
       <div
         style={{
-          overflow: 'scroll',
-          height: '100vh',
+          overflow: "scroll",
+          height: "100vh",
         }}
       >
         <section className="section">
@@ -40,7 +41,7 @@ export default class IndexPage extends React.Component {
             {playlists.map(({ node: playlist }) => (
               <div
                 className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
                 key={playlist.id}
               >
                 <h3>{playlist.frontmatter.title}</h3>
@@ -64,7 +65,7 @@ export default class IndexPage extends React.Component {
             {scenes.map(({ node: scene }) => (
               <div
                 className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
                 key={scene.id}
               >
                 <h3>{scene.frontmatter.title}</h3>
@@ -80,7 +81,7 @@ export default class IndexPage extends React.Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
@@ -90,7 +91,7 @@ IndexPage.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-}
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -117,4 +118,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,50 +1,47 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { NewSceneTemplate, scenePageQuery } from './scene'
+import React from "react";
+import PropTypes from "prop-types";
+import { NewSceneTemplate, scenePageQuery } from "./scene";
+import { graphql } from "gatsby";
 
 class PlaylistTemplate extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     // console.log(props)
-    const { scenes, duration } = this.props
+    const { scenes, duration } = this.props;
     if (!!scenes) {
-      const first = scenes[0]
+      const first = scenes[0];
       if (!!first && !!first.frontmatter) {
-        const sceneDuration = first.frontmatter.duration
+        const sceneDuration = first.frontmatter.duration;
         const validDuration =
           !isNaN(parseFloat(sceneDuration)) &&
           isFinite(sceneDuration) &&
           sceneDuration > 0
             ? sceneDuration
-            : duration || 8
+            : duration || 8;
         // console.log(validDuration)
-        const durationToUse = Math.round(validDuration * 1000)
+        const durationToUse = Math.round(validDuration * 1000);
 
         this.state = {
           sceneIndex: 0,
           activeScene: first,
-        }
+        };
 
         !!first.frontmatter.video
           ? void 0
-          : setTimeout(this.advanceScene, durationToUse)
+          : setTimeout(this.advanceScene, durationToUse);
       }
     }
   }
 
   render() {
     if (!this.state || !this.state.activeScene)
-      return 'Error: unable to render playlist.'
+      return "Error: unable to render playlist.";
 
-    const {
-      image,
-      video,
-      dueDates,
-      screenText,
-    } = this.state.activeScene.frontmatter
+    const { image, video, dueDates, screenText } =
+      this.state.activeScene.frontmatter;
 
     // console.log(this.props)
-    console.log(screenText)
+    console.log(screenText);
 
     return (
       <div>
@@ -58,15 +55,15 @@ class PlaylistTemplate extends React.Component {
           />
         )}
       </div>
-    )
+    );
   }
 
   advanceScene = () => {
     // alert('scene over, advancing to next scene in playlist')
-    const { sceneIndex } = this.state
-    const { scenes, duration } = this.props
-    const nextIndex = sceneIndex < scenes.length - 1 ? sceneIndex + 1 : 0
-    const nextScene = scenes[nextIndex]
+    const { sceneIndex } = this.state;
+    const { scenes, duration } = this.props;
+    const nextIndex = sceneIndex < scenes.length - 1 ? sceneIndex + 1 : 0;
+    const nextScene = scenes[nextIndex];
     // alert(
     //   `${JSON.stringify(this.state)}, ${nextIndex}, ${JSON.stringify(
     //     nextScene
@@ -76,24 +73,24 @@ class PlaylistTemplate extends React.Component {
     this.setState({
       sceneIndex: nextIndex,
       activeScene: nextScene,
-    })
+    });
 
-    const sceneDuration = nextScene.frontmatter.duration
+    const sceneDuration = nextScene.frontmatter.duration;
     const validDuration =
       !isNaN(parseFloat(sceneDuration)) &&
       isFinite(sceneDuration) &&
       sceneDuration > 0
         ? sceneDuration
-        : duration || 8
+        : duration || 8;
 
     // alert(`${sceneDuration}, ${duration}, ${validDuration}`)
 
-    const durationToUse = Math.round(validDuration * 1000)
+    const durationToUse = Math.round(validDuration * 1000);
 
     !!nextScene.frontmatter.video
       ? void 0
-      : setTimeout(this.advanceScene, durationToUse)
-  }
+      : setTimeout(this.advanceScene, durationToUse);
+  };
 }
 
 PlaylistTemplate.propTypes = {
@@ -101,16 +98,16 @@ PlaylistTemplate.propTypes = {
   title: PropTypes.string,
   duration: PropTypes.number,
   scenes: PropTypes.any.isRequired, // todo: get specific
-}
+};
 
-export { PlaylistTemplate }
+export { PlaylistTemplate };
 
 const Playlist = ({ data }) => {
-  const { frontmatter, fields } = data.markdownRemark
-  const { image, title, duration } = frontmatter
+  const { frontmatter, fields } = data.markdownRemark;
+  const { image, title, duration } = frontmatter;
 
   const validDuration =
-    !isNaN(parseFloat(duration)) && isFinite(duration) ? duration : 8 // todo: pull out the hardcoded default into a config page
+    !isNaN(parseFloat(duration)) && isFinite(duration) ? duration : 8; // todo: pull out the hardcoded default into a config page
 
   return (
     <PlaylistTemplate
@@ -119,8 +116,8 @@ const Playlist = ({ data }) => {
       scenes={fields.scenes}
       duration={validDuration}
     />
-  )
-}
+  );
+};
 
 Playlist.propTypes = {
   data: PropTypes.shape({
@@ -129,9 +126,9 @@ Playlist.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-}
+};
 
-export default Playlist
+export default Playlist;
 
 export const playlistPageQuery = graphql`
   query Playlist($id: String!) {
@@ -178,4 +175,4 @@ export const playlistPageQuery = graphql`
       }
     }
   }
-`
+`;

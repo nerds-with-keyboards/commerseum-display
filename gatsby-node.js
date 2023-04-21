@@ -1,10 +1,10 @@
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const _ = require("lodash");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   return graphql(`
     {
@@ -23,16 +23,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
-      return Promise.reject(result.errors)
+      result.errors.forEach((e) => console.error(e.toString()));
+      return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges;
 
-    posts.forEach(edge => {
-      const id = edge.node.id
+    posts.forEach((edge) => {
+      const id = edge.node.id;
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -43,23 +43,23 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         context: {
           id,
         },
-      })
-    })
+      });
+    });
 
     // Tag pages:
-    let tags = []
+    let tags = [];
     // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
+    posts.forEach((edge) => {
       if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
+        tags = tags.concat(edge.node.frontmatter.tags);
       }
-    })
+    });
     // Eliminate duplicate tags
-    tags = _.uniq(tags)
+    tags = _.uniq(tags);
 
     // Make tag pages
-    tags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
+    tags.forEach((tag) => {
+      const tagPath = `/tags/${_.kebabCase(tag)}/`;
 
       createPage({
         path: tagPath,
@@ -67,65 +67,65 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         context: {
           tag,
         },
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  fmImagesToRelative(node)
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  fmImagesToRelative(node);
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
       value,
-    })
+    });
   }
-}
+};
 
 // link collections
-exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  const { createNodeField } = actions;
 
-  const nodes = getNodes()
+  const nodes = getNodes();
 
   // link scenes to collections
   // first, build an index
-  const scenesByPlaylistIndex = {}
+  const scenesByPlaylistIndex = {};
   // Playlist -> Scenes Index build
   nodes
     .filter(
-      node =>
+      (node) =>
         node.internal.type === `MarkdownRemark` &&
         !!node.frontmatter &&
         node.frontmatter.templateKey === `playlist`
     )
-    .forEach(playlist => {
+    .forEach((playlist) => {
       // console.log(playlist)
       if (!!playlist.frontmatter.scenes) {
-        playlist.frontmatter.scenes.forEach(sceneLink => {
+        playlist.frontmatter.scenes.forEach((sceneLink) => {
           // console.log(sceneLink)
           const match = nodes.find(
-            scene =>
+            (scene) =>
               scene.internal.type === `MarkdownRemark` &&
               !!scene.frontmatter &&
               scene.frontmatter.templateKey === `scene` &&
               scene.frontmatter.title === sceneLink.title
-          )
+          );
 
           if (!!match) {
             // console.log(match)
             if (!scenesByPlaylistIndex[playlist.id])
-              scenesByPlaylistIndex[playlist.id] = []
+              scenesByPlaylistIndex[playlist.id] = [];
 
-            scenesByPlaylistIndex[playlist.id].push(match.id)
+            scenesByPlaylistIndex[playlist.id].push(match.id);
           }
-        })
+        });
       }
-    })
+    });
 
   // next, use the index to create the links
   Object.entries(scenesByPlaylistIndex).forEach(([playlistId, sceneIds]) => {
@@ -134,8 +134,8 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
       node: getNode(playlistId),
       name: `scenes`,
       value: sceneIds,
-    })
-  })
+    });
+  });
 
   // link scenes/playlists to screens
   // nodes
@@ -188,4 +188,4 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
   //       }
   //     }
   //   })
-}
+};

@@ -1,63 +1,64 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-import ReactPlayer from 'react-player'
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import ReactPlayer from "react-player";
 // import Img from 'gatsby-image'
 // import ReactMarkdown from 'react-markdown'
-import { markdown } from 'markdown'
-import Content from '../components/Content'
-import { DueDatesTemplate } from '../components/DueDate'
-import Img from 'gatsby-image'
+import { markdown } from "markdown";
+import Content from "../components/Content";
+import { DueDatesTemplate } from "../components/DueDate";
+import Img from "gatsby-image";
+import { graphql } from "gatsby";
 
 const styles = {
   centerTextContainer: {
-    width: 'calc(100vw - 128px)',
-    background: 'rgba(0,0,0,0.64)',
-    color: 'white',
-    padding: '64px',
-    borderRadius: '32px',
-    fontSize: '2rem',
-    position: 'absolute',
-    zIndex: '4',
-    left: '64px',
-    textAlign: 'center', // TODO: EVALUATE
+    width: "calc(100vw - 128px)",
+    background: "rgba(0,0,0,0.64)",
+    color: "white",
+    padding: "64px",
+    borderRadius: "32px",
+    fontSize: "2rem",
+    position: "absolute",
+    zIndex: "4",
+    left: "64px",
+    textAlign: "center", // TODO: EVALUATE
   },
   backgroundImage: {
-    width: '100vw',
-    height: '100vh',
-    zIndex: '-1',
-    position: 'absolute',
+    width: "100vw",
+    height: "100vh",
+    zIndex: "-1",
+    position: "absolute",
   },
   flexParent: {
-    width: '100vw',
-    height: '100vh',
-    background: 'transparent',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100vw",
+    height: "100vh",
+    background: "transparent",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   backgroundBlack: {
-    width: '100vw',
-    height: '100vh',
-    zIndex: '-1',
-    position: 'absolute',
-    background: 'black',
+    width: "100vw",
+    height: "100vh",
+    zIndex: "-1",
+    position: "absolute",
+    background: "black",
   },
-}
+};
 
 export const MarkdownHtml = ({ markdownText }) => (
   <div style={styles.centerTextContainer}>
     <div
       dangerouslySetInnerHTML={{
-        __html: markdown.toHTML(markdownText || ''),
+        __html: markdown.toHTML(markdownText || ""),
       }}
     />
   </div>
-)
+);
 
 class NewSceneTemplate extends React.Component {
   render() {
-    const { image, video, onEnded, dueDates, screenText } = this.props
+    const { image, video, onEnded, dueDates, screenText } = this.props;
     return (
       <Fragment>
         {!!image ? (
@@ -105,15 +106,16 @@ class NewSceneTemplate extends React.Component {
           )}
         </div>
       </Fragment>
-    )
+    );
   }
 }
 
-export { NewSceneTemplate }
+export { NewSceneTemplate };
 
 const Scene = ({ data }) => {
   // const { frontmatter } = data.markdownRemark
-  const { image, video, dueDates, screenText } = data.markdownRemark.frontmatter
+  const { image, video, dueDates, screenText } =
+    data.markdownRemark.frontmatter;
 
   return (
     <NewSceneTemplate
@@ -122,8 +124,8 @@ const Scene = ({ data }) => {
       dueDates={dueDates}
       screenText={screenText}
     />
-  )
-}
+  );
+};
 
 Scene.propTypes = {
   data: PropTypes.shape({
@@ -131,9 +133,9 @@ Scene.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-}
+};
 
-export default Scene
+export default Scene;
 
 export const scenePageQuery = graphql`
   query Scene($id: String!) {
@@ -163,4 +165,4 @@ export const scenePageQuery = graphql`
       }
     }
   }
-`
+`;
