@@ -51,25 +51,6 @@ collections:
         valueType: 'int'
         min: 1
         required: false
-      - label: 'Due Dates'
-        name: dueDates
-        widget: list
-        required: false
-        fields:
-          - label: Due Date
-            name: dueDate
-            widget: datetime
-          - label: Gender
-            name: gender
-            widget: select
-            options: ['boy', 'girl', 'unidentified']
-          - label: 'Name'
-            name: title
-            widget: string
-          - label: Image
-            name: image
-            widget: image
-            required: false
 
   - name: 'playlist'
     label: 'Playlist'

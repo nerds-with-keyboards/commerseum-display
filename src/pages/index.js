@@ -12,10 +12,10 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: playlistsAndScenes } = data.allMarkdownRemark;
     const scenes = playlistsAndScenes.filter(
-      (e) => e.node.frontmatter.templateKey === "scene"
+      e => e.node.frontmatter.templateKey === "scene"
     );
     const playlists = playlistsAndScenes.filter(
-      (e) => e.node.frontmatter.templateKey === "playlist"
+      e => e.node.frontmatter.templateKey === "playlist"
     );
 
     return (

@@ -8,11 +8,6 @@ screenText: \_\_COMMERSEUM\_\_INTERNAL__ Scene
 tags:
   - __COMMERSEUM__INTERNAL__
 duration: 42
-dueDates:
-  - dueDate: '2018-10-12T21:15:25-06:00'
-    gender: unidentified
-    title: foo
-    image: /img/26.jpg
 ---
 # \_\_COMMERSEUM\_\_INTERNAL\_\_
 

@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 
 const NotFoundPage = () => (
-  <div style={{ padding: '2rem 4rem', fontSize: '1.5rem' }}>
+  <div style={{ padding: "2rem 4rem", fontSize: "1.5rem" }}>
     <h1
       style={{
-        fontWeight: 'bold',
-        fontSize: '2rem',
+        fontWeight: "bold",
+        fontSize: "2rem",
       }}
     >
       <span
         style={{
-          color: 'darkred',
-          fontSize: '4rem',
+          color: "darkred",
+          fontSize: "4rem",
         }}
       >
         404
@@ -25,7 +25,7 @@ const NotFoundPage = () => (
     </p>
     <p>
       <b>
-        <a onClick={() => history.back()}>Go Back</a>
+        <a onClick={() => window.history.back()}>Go Back</a>
       </b>
     </p>
     <p>
@@ -34,6 +34,6 @@ const NotFoundPage = () => (
       </b>
     </p>
   </div>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

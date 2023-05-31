@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const path = require("path");
+const path = require("path-browserify");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
@@ -107,7 +107,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
       // console.log(playlist)
       if (!!playlist.frontmatter.scenes) {
         playlist.frontmatter.scenes.forEach((sceneLink) => {
-          // console.log(sceneLink)
+          console.log(sceneLink);
           const match = nodes.find(
             (scene) =>
               scene.internal.type === `MarkdownRemark` &&
@@ -117,7 +117,7 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
           );
 
           if (!!match) {
-            // console.log(match)
+            console.log(match);
             if (!scenesByPlaylistIndex[playlist.id])
               scenesByPlaylistIndex[playlist.id] = [];
 
