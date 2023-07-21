@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 
+import "./all.sass";
+
 export default class IndexPage extends React.Component {
   // constructor(props) {
   //   super(props)
