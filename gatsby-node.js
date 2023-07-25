@@ -189,3 +189,81 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
   //     }
   //   })
 };
+const _ = require("lodash");
+const path = require("path-browserify");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { fmImagesToRelative } = require("gatsby-remark-relative-images");
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
+
+  return graphql(`
+    {
+      allMarkdownRemark(limit: 1000) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              tags
+              templateKey
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    // Existing code for createPages...
+  });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  // Existing code for onCreateNode...
+};
+
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  // Existing code for sourceNodes...
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type AuthorJson implements Node {
+      joinedAt: Date
+    }
+
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+
+    type Frontmatter {
+      title: String!
+      date: Date
+      duration: String!
+      tags: [String]
+      video: String
+      screenText: String
+    }
+
+    type Playlist implements Node @dontInfer {
+      title: String!
+      date: Date
+      duration: String
+      scenes: [Scene]
+      tags: [String]
+    }
+
+    type Scene implements Node @dontInfer {
+      title: String!
+      date: Date
+      duration: String!
+      tags: [String]
+      video: String
+      screenText: String!
+    }
+  `;
+  createTypes(typeDefs);
+};
+
