@@ -25,12 +25,14 @@ export const MarkdownHtml = ({ markdownText }) => (
 class SceneComponent extends React.Component {
   render() {
     const { image, video, onEnded, screenText } = this.props;
+
     return (
       <Fragment>
         {!!image ? (
           <GatsbyImage
-            fluid={image.childImageSharp.fluid}
+            image={image.childImageSharp.gatsbyImageData}
             position="absolute"
+            alt=""
             style={{
               width: "100vw",
               height: "100vh",

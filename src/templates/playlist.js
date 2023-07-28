@@ -40,9 +40,7 @@ export const playlistPageQuery = graphql`
             title
             image {
               childImageSharp {
-                fluid(maxWidth: 4096, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             video
@@ -56,9 +54,7 @@ export const playlistPageQuery = graphql`
         duration
         image {
           childImageSharp {
-            fluid(maxWidth: 4096, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
