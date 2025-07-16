@@ -54,4 +54,32 @@ body, html
 h1
   font-size: 4rem !important
 
+// Clock Component Styles
+.clock-container
+  position: fixed
+  top: 20px
+  right: 20px
+  z-index: 9999
+  background-color: rgba(0, 0, 0, 0.5)
+  backdrop-filter: blur(10px)
+  -webkit-backdrop-filter: blur(10px)
+  padding: 15px 25px
+  border-radius: 16px
+  color: white
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif
+  text-align: center
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+.clock-time
+  font-size: 2rem
+  font-weight: 300
+  letter-spacing: 1px
+  line-height: 1.2
+
+.clock-date
+  font-size: 1rem
+  font-weight: 400
+  opacity: 1
+  margin-top: 5px
+
 @import "~bulma"
