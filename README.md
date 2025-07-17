@@ -1,6 +1,6 @@
 # Commerseum Display
 
-An open-source digital signage application built with Gatsby v4 and Decap CMS.
+An open-source digital signage application built with Gatsby v4 and Decap CMS. [Check out a demo instance.](https://commerseum-display.netlify.app)
 
 **Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-4/).
 
