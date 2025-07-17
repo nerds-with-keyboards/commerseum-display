@@ -31,8 +31,8 @@ class SceneComponent extends React.Component {
         {!!image ? (
           <GatsbyImage
             image={image.childImageSharp.gatsbyImageData}
-            position="absolute"
-            alt=""
+            position='absolute'
+            alt=''
             style={{
               width: "100vw",
               height: "100vh",
@@ -68,9 +68,9 @@ class SceneComponent extends React.Component {
             <ReactPlayer
               url={video}
               playing
-              ref="player"
-              height="100%"
-              width="100%"
+              ref='player'
+              height='100%'
+              width='100%'
               // loop // has to be absent for now, due to
               // https://github.com/CookPete/react-player/issues/496
               playsinline

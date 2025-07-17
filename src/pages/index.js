@@ -27,22 +27,22 @@ export default class IndexPage extends React.Component {
           height: "100vh",
         }}
       >
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Commerseum</h1>
+        <section className='section'>
+          <div className='container'>
+            <div className='content'>
+              <h1 className='has-text-weight-bold is-size-2'>Commerseum</h1>
             </div>
           </div>
         </section>
 
-        <section className="section">
-          <div className="container">
-            <div className="content">
+        <section className='section'>
+          <div className='container'>
+            <div className='content'>
               <h2>List of playlists</h2>
             </div>
             {playlists.map(({ node: playlist }) => (
               <div
-                className="content"
+                className='content'
                 style={{
                   border: "1px dotted #eaecee",
                   padding: "2em 4em",
@@ -54,7 +54,7 @@ export default class IndexPage extends React.Component {
                 <p>{playlist.frontmatter.date}</p>
                 <p>{playlist.excerpt}</p>
                 <p>
-                  <Link className="button is-small" to={playlist.fields.slug}>
+                  <Link className='button is-small' to={playlist.fields.slug}>
                     {playlist.fields.slug}
                   </Link>
                 </p>
@@ -63,14 +63,14 @@ export default class IndexPage extends React.Component {
           </div>
         </section>
 
-        <section className="section">
-          <div className="container">
-            <div className="content">
+        <section className='section'>
+          <div className='container'>
+            <div className='content'>
               <h2>List of scenes</h2>
             </div>
             {scenes.map(({ node: scene }) => (
               <div
-                className="content"
+                className='content'
                 style={{
                   border: "1px dotted #eaecee",
                   padding: "2em 4em",
@@ -82,7 +82,7 @@ export default class IndexPage extends React.Component {
                 <p>{scene.frontmatter.date}</p>
                 <p>{scene.excerpt}</p>
                 <p>
-                  <Link className="button is-small" to={scene.fields.slug}>
+                  <Link className='button is-small' to={scene.fields.slug}>
                     {scene.fields.slug}
                   </Link>
                 </p>

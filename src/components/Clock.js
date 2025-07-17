@@ -28,9 +28,9 @@ const Clock = ({ showClock = true }) => {
   };
 
   return showClock ? (
-    <div className="clock-container">
-      <div className="clock-time">{formatTime(time)}</div>
-      <div className="clock-date">{formatDate(time)}</div>
+    <div className='clock-container'>
+      <div className='clock-time'>{formatTime(time)}</div>
+      <div className='clock-date'>{formatDate(time)}</div>
     </div>
   ) : null;
 };

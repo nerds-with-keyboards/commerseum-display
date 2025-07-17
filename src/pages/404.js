@@ -30,7 +30,7 @@ const NotFoundPage = () => (
     </p>
     <p>
       <b>
-        <a href="/">Go Home</a>
+        <a href='/'>Go Home</a>
       </b>
     </p>
   </div>

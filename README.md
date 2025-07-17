@@ -1,6 +1,6 @@
 # Commerseum Display
 
-A digital signage application built with Gatsby v4 and Decap CMS. This is version 2, which is now the main branch. For the legacy version, please see the [v1 branch](https://github.com/nerds-with-keyboards/commerseum-display/tree/v1).
+An open-source digital signage application built with Gatsby v4 and Decap CMS.
 
 **Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-4/).
 
