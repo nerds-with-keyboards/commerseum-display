@@ -1,6 +1,6 @@
-# Commerseum Display v2
+# Commerseum Display
 
-Currently WIP. Based on Gatsby + Decap CMS Starter. For the older still-working version, please see the [v1 branch](https://github.com/nerds-with-keyboards/commerseum-display/tree/v1).
+A digital signage application built with Gatsby v4 and Decap CMS. This is version 2, which is now the main branch. For the legacy version, please see the [v1 branch](https://github.com/nerds-with-keyboards/commerseum-display/tree/v1).
 
 **Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-4/).
 
@@ -9,8 +9,11 @@ The web app harnesses the [JAMstack architecture](https://jamstack.org) by using
 ## Features
 
 - A simple digital signage application based on Decap CMS
-- Create playlists and scenes from decap CMS admin page
-- Uses Bulma for styling, but size is reduced by `gatsy-plugin-purgecss`
+- Create playlists and scenes from Decap CMS admin page
+- Clock display with time and date
+- Support for images, videos, and text overlays
+- Automatic scene rotation in playlists
+- Uses Bulma for styling, but size is reduced by `gatsby-plugin-purgecss`
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
 - Uses `gatsby-plugin-image` with Decap CMS preview support
 - Netlify deploy configuration
@@ -30,7 +33,7 @@ Pulldown a local copy of the Github repository, either this one or your own fork
 $ git clone https://github.com/nerds-with-keyboards/commerseum-display.git
 $ cd commerseum-display
 $ yarn install
-$ yarn start
+$ yarn develop  # or yarn dev
 ```
 
 To test the CMS locally, you'll need to run a production build of the site:
@@ -43,9 +46,9 @@ $ yarn serve
 
 Follow the [Decap CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting for production.
 
-If you want use Decap CMS locally, run the site in one terminal with `yarn start` and in another
+If you want use Decap CMS locally, run the site in one terminal with `yarn develop` and in another
 Terminal you can use `npx netlify-cms-proxy-server` which proxy requests so you'll be automatically logged
-in as a user on [http:localhost:3000/admin](http:localhost:3000/admin).
+in as a user on [http://localhost:8000/admin](http://localhost:8000/admin).
 
 ## Debugging
 

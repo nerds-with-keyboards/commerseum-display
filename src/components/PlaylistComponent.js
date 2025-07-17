@@ -17,7 +17,7 @@ class PlaylistTemplate extends React.Component {
           sceneDuration > 0
             ? sceneDuration
             : duration || 8;
-        // console.log(validDuration)
+        // console.log({ validDuration });
         const durationToUse = Math.round(validDuration * 1000);
 
         this.state = {
@@ -61,11 +61,11 @@ class PlaylistTemplate extends React.Component {
     const { scenes, duration } = this.props;
     const nextIndex = sceneIndex < scenes.length - 1 ? sceneIndex + 1 : 0;
     const nextScene = scenes[nextIndex];
-    // alert(
+    // console.debug(
     //   `${JSON.stringify(this.state)}, ${nextIndex}, ${JSON.stringify(
     //     nextScene
     //   )}`
-    // )
+    // );
 
     this.setState({
       sceneIndex: nextIndex,
@@ -80,7 +80,7 @@ class PlaylistTemplate extends React.Component {
         ? sceneDuration
         : duration || 8;
 
-    // alert(`${sceneDuration}, ${duration}, ${validDuration}`)
+    // console.debug({ sceneDuration, duration, validDuration });
 
     const durationToUse = Math.round(validDuration * 1000);
 

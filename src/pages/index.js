@@ -43,7 +43,11 @@ export default class IndexPage extends React.Component {
             {playlists.map(({ node: playlist }) => (
               <div
                 className="content"
-                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
+                style={{
+                  border: "1px dotted #eaecee",
+                  padding: "2em 4em",
+                  borderRadius: "32px",
+                }}
                 key={playlist.id}
               >
                 <h3>{playlist.frontmatter.title}</h3>
@@ -67,7 +71,11 @@ export default class IndexPage extends React.Component {
             {scenes.map(({ node: scene }) => (
               <div
                 className="content"
-                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
+                style={{
+                  border: "1px dotted #eaecee",
+                  padding: "2em 4em",
+                  borderRadius: "32px",
+                }}
                 key={scene.id}
               >
                 <h3>{scene.frontmatter.title}</h3>
